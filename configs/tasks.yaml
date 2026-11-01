@@ -1,0 +1,37 @@
+# Label sets, prompt template ids, metrics, and data sources per task.
+# `labels` maps the gold label name (as stored in JSONL) to the verbalizer
+# string the model is scored on.
+sentiment:
+  labels:
+    negative: negative
+    neutral: neutral
+    positive: positive
+  prompt_version: sentiment_v1
+  metric: macro_recall
+  extra_metrics: [macro_f1, accuracy]
+  id_prefix: sent
+  source:
+    hf_id: cardiffnlp/tweet_eval
+    hf_config: sentiment
+    label_names: [negative, neutral, positive]   # index -> gold label
+  # Natural-variation sets that cannot be generated from the clean data.
+  natural:
+    code_switch:
+      hinglish: {loader: sentimix, path: data/raw/sentimix/hinglish_test.txt}
+      spanglish: {loader: sentimix, path: data/raw/sentimix/spanglish_test.txt}
+    dialect:
+      value_sst2: {loader: value_sst2, path: data/raw/value/sst2_aave_dev.tsv, dialect: aave}
+
+offensive:
+  labels:
+    not_offensive: not offensive
+    offensive: offensive
+  prompt_version: offensive_v1
+  metric: macro_f1
+  extra_metrics: [macro_recall, accuracy]
+  id_prefix: off
+  source:
+    hf_id: cardiffnlp/tweet_eval
+    hf_config: offensive
+    label_names: [not_offensive, offensive]
+  natural: {}

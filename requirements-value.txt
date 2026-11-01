@@ -1,0 +1,12 @@
+# Separate env for Multi-VALUE dialect transforms (its pinned deps clash with the main env).
+#   python -m venv .venv-value
+#   .venv-value/bin/pip install -r requirements-value.txt   (Windows: .venv-value\Scripts\pip)
+#   python -m harness.data.build_sets ... --dialect-python .venv-value/bin/python
+# Torch must be < 2.6 (stanza 1.8 checkpoints fail with weights_only loading).
+--extra-index-url https://download.pytorch.org/whl/cpu
+value-nlp==0.3
+numpy<2
+pandas<2.3
+scipy<1.14
+torch==2.5.1
+transformers<4.50

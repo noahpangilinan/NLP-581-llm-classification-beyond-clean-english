@@ -1,0 +1,13 @@
+[project]
+name = "harness"
+version = "0.1.0"
+description = "Robustness evaluation harness for LLM text classifiers (typos, dialects, code-switching)."
+requires-python = ">=3.11"
+
+[tool.setuptools.packages.find]
+include = ["harness*"]
+
+[tool.pytest.ini_options]
+pythonpath = ["."]
+testpaths = ["tests"]
+filterwarnings = ["ignore::DeprecationWarning", "ignore::FutureWarning"]

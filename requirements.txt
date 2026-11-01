@@ -1,0 +1,19 @@
+# Install torch first with the wheel matching your CUDA, e.g.
+#   pip install torch --index-url https://download.pytorch.org/whl/cu128
+torch>=2.4
+transformers>=4.57
+datasets>=3.0
+peft>=0.15
+accelerate>=1.0
+bitsandbytes>=0.45; platform_system != "Darwin"
+scikit-learn>=1.4
+scipy>=1.11
+pandas>=2.1
+matplotlib>=3.8
+pyyaml>=6.0
+rich>=13.0
+pytest>=8.0
+sentencepiece
+protobuf
+# Optional, for dialect transforms (may need a separate env, see README):
+#   pip install value-nlp

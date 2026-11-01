@@ -1,0 +1,13 @@
+# End-to-end integration test: 1 model, 1 task, 2 regimes, 2 conditions, 50 examples.
+seed: 13
+models: [qwen]
+tasks: [sentiment]
+regimes:
+  - {name: zeroshot}
+  - {name: fewshot, k: 4}
+conditions:
+  - {perturbation: none}
+  - {perturbation: typo, severity: [0.10]}
+max_examples: 50
+batch_size: 8
+load_4bit: false

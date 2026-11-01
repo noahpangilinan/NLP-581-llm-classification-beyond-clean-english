@@ -1,0 +1,17 @@
+# Instruct models (~3-4B). Every model is driven through its own chat template.
+# chat_template_kwargs are passed to tokenizer.apply_chat_template.
+qwen:
+  hf_id: Qwen/Qwen3-4B-Instruct-2507
+  gated: false
+  # The 2507 Instruct variant is non-thinking only; the flag is harmless and
+  # keeps thinking off if we switch to a hybrid Qwen3/3.5 checkpoint.
+  chat_template_kwargs: {enable_thinking: false}
+llama:
+  hf_id: meta-llama/Llama-3.2-3B-Instruct
+  gated: true   # needs HF_TOKEN and an accepted license
+  chat_template_kwargs: {}
+gemma:
+  hf_id: google/gemma-4-E4B-it
+  gated: false
+  chat_template_kwargs: {}
+  notes: Multimodal; used text-only.

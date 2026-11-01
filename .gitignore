@@ -1,0 +1,22 @@
+# Python
+__pycache__/
+*.py[cod]
+*.egg-info/
+.pytest_cache/
+.venv/
+.venv-*/
+venv/
+.ipynb_checkpoints/
+
+# Experiment artifacts (never commit)
+outputs/
+data/raw/
+data/processed/
+data/cache/
+*.safetensors
+*.bin
+*.pt
+*.gguf
+
+# Secrets
+.env

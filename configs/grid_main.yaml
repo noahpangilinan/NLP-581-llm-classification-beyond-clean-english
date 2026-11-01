@@ -1,0 +1,18 @@
+seed: 13
+models: [qwen, llama, gemma]
+tasks: [sentiment, offensive]
+regimes:
+  - {name: zeroshot}
+  - {name: fewshot, k: 4}
+  - {name: fewshot, k: 8}
+  - {name: finetune, train_variant: clean}
+  - {name: finetune, train_variant: augmented}   # RQ3, stretch
+conditions:
+  - {perturbation: none}
+  - {perturbation: typo, severity: [0.05, 0.10, 0.20]}
+  - {perturbation: natural_typo, severity: [0.05, 0.10, 0.20]}
+  - {perturbation: dialect, dialect: [aave, indian_english, singlish]}
+  - {perturbation: code_switch, tasks: [sentiment], lang: [hinglish, spanglish]}   # SentiMix only
+max_examples: 1000
+batch_size: 16
+load_4bit: false

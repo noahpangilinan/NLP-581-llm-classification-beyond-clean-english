@@ -3,7 +3,19 @@
 Measures how much LLM classification drops under typos, dialect variation, and
 code-switching, for three ~3–4B instruct models in three regimes (zero-shot,
 in-context learning, LoRA fine-tuning) on TweetEval sentiment and offensive-language
-detection. See `plan.md` (team doc) for research questions and milestones.
+detection. Course project for NLP 581.
+
+| | Main grid (`configs/grid_main.yaml`) |
+|---|---|
+| Models | Qwen3-4B-Instruct-2507, Llama-3.2-3B-Instruct, Gemma 4 E4B-it (text only) |
+| Tasks | Sentiment, offensive language |
+| Regimes | Zero-shot, 4-shot, 8-shot, LoRA on clean data, LoRA on perturbed data |
+| Conditions | Clean; synthetic and natural typos at 5/10/20% of words; AAVE, Indian English and Singlish via Multi-VALUE; Hinglish and Spanglish code-switching (sentiment only) |
+
+Research questions:
+- **RQ1:** how much does each kind of non-standard English hurt each model and regime, and which is most damaging?
+- **RQ2:** does the drop under synthetic typos predict the drop under real ones (Spearman across matched conditions)?
+- **RQ3:** does fine-tuning on perturbed text, rather than clean text, recover the loss?
 
 ## Setup
 

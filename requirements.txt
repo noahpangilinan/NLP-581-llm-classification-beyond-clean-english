@@ -1,6 +1,7 @@
 # Install torch first with the wheel matching your CUDA, e.g.
 #   pip install torch --index-url https://download.pytorch.org/whl/cu128
 torch>=2.4
+gradio>=4.0
 transformers>=4.57
 datasets>=3.0
 peft>=0.15
